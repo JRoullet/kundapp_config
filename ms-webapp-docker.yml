@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: ms-webapp
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    #    Allows tables creation
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  sql:
+    init:
+      mode: always
+  config:
+    import: configserver:http://msconfigserver:8888/
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://msdiscovery:8761/eureka/
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: health, info, refresh

@@ -3,7 +3,7 @@ server:
 #EUREKA Server -- Local Configuration
 eureka:
   instance:
-    hostname: msdiscovery
+    hostname: localhost
   client:
     fetchRegistry: false
     registerWithEureka: false

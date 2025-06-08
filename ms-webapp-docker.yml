@@ -3,10 +3,6 @@ server:
 spring:
   application:
     name: ms-webapp
-  mvc:
-    hiddenmethod:
-      filter:
-        enabled: true
   datasource:
     url: jdbc:mysql://msidentitydb:3306/identitydb
     username: root

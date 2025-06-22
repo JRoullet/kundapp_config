@@ -1,11 +1,16 @@
 #------ Imported config must be quite empty to avoid loosing time from a/r -----#
 server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
   port: 8090
 spring:
   application:
     name: ms-identity
   datasource:
-    url: jdbc:mysql://msidentitydb:3306/identitydb
+    url: jdbc:mysql://msidentitydb:3306/identitydb?useUnicode=true&characterEncoding=UTF-8
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver

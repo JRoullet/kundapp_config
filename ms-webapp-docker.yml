@@ -15,6 +15,10 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
   sql:
     init:
       mode: always

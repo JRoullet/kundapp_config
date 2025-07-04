@@ -14,7 +14,7 @@ spring:
     password: root
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: validate
     #    Allows tables creation
     properties:
       hibernate:
@@ -22,7 +22,7 @@ spring:
         format_sql: true
   sql:
     init:
-      mode: always
+      mode: never
 eureka:
   client:
     register-with-eureka: true

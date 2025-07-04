@@ -15,11 +15,11 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create-drop
-    show-sql: true
     #    Allows tables creation
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
   sql:
     init:
       mode: always
@@ -29,6 +29,10 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://msdiscovery:8761/eureka/
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 
 #management:
 #  endpoints:

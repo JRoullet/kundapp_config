@@ -1,22 +1,17 @@
 #------ Imported config must be quite empty to avoid loosing time from a/r -----#
 server:
-  servlet:
-    encoding:
-      charset: UTF-8
-      enabled: true
-      force: true
-  port: 8090
+  port: 9000
 spring:
   application:
-    name: ms-identity
+    name: ms-course-mgmt
   datasource:
-    url: jdbc:mysql://msidentitydb:3306/identitydb?useUnicode=true&characterEncoding=utf8mb4&serverTimezone=UTC
+    url: jdbc:mysql://mscoursemgmtdb:3306/coursemgmtdb?useUnicode=true&characterEncoding=utf8mb4&serverTimezone=UTC
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: validate
     show-sql: true
     properties:
       hibernate:

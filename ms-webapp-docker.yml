@@ -6,6 +6,11 @@ server:
       force: true
   port: 8080
 spring:
+  spring:
+    web:
+      locale: fr_FR
+    thymeleaf:
+      encoding: UTF-8
   application:
     name: ms-webapp
   datasource:

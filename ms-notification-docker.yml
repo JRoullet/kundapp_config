@@ -6,8 +6,8 @@ spring:
     name: ms-notification
   data:
     mongodb:
-      uri: mongodb://root:123@msnotificationmongodb:27017/msnotificationmongodb
-      database: msnotificationmongodb
+      uri: {DATABASE_MONGODB_URL}
+      database: {MONGODB_DATABASE}
 
   # Email configuration (mock mode) for development
   mail:

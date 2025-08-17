@@ -1,0 +1,33 @@
+server:
+  port: 9010
+
+spring:
+  application:
+    name: ms-notification
+  data:
+    mongodb:
+      uri: mongodb://root:123@msnotificationmongodb:27017/msnotificationmongodb
+      database: msnotificationmongodb
+
+  # Email configuration (mock mode) for development
+  mail:
+    enabled: false  # Mock mode
+
+# Notification settings
+notification:
+  email:
+    enabled: false    # No real email sending
+    mock: true        # Log emails instead
+    from: noreply@kundapp.com
+    templates:
+      enrollment: enrollment
+      cancellation: cancellation
+      modification: modification
+
+# Eureka registration
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://msdiscovery:8761/eureka/

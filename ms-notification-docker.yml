@@ -10,10 +10,7 @@ spring:
 
   data:
     mongodb:
-      host: msnotificationmongodb
-      port: 27017
-      username: ${MONGODB_USERNAME}
-      password: ${MONGODB_PASSWORD}
+      uri: ${MONGODB_URI}
       database: ${MONGODB_DATABASE}
 
   # Basic SMTP config (unused in mock mode)

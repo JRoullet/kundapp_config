@@ -1,33 +1,74 @@
+#------ Configuration DEV pour ms-notification -----#
 server:
   port: 9010
 
 spring:
   application:
     name: ms-notification
+  profiles:
+    active: mock  #mock profile for development
+
   data:
     mongodb:
-      uri: ${MONGODB_URI}
+      host: msnotificationmongodb
+      port: 27017
+      username: ${MONGODB_USERNAME}
+      password: ${MONGODB_PASSWORD}
       database: ${MONGODB_DATABASE}
 
-  # Email configuration (mock mode) for development
+  # Basic SMTP config (unused in mock mode)
   mail:
-    enabled: false  # Mock mode
+    host: localhost
+    port: 25
+    properties:
+      mail.transport.protocol: smtp
 
-# Notification settings
+# Notification settings - Mock mode for development
 notification:
   email:
-    enabled: false    # No real email sending
-    mock: true        # Log emails instead
+    enabled: true     # Active service
+    mock: true        # Mock mode (only logs)
     from: noreply@kundapp.com
     templates:
       enrollment: enrollment
       cancellation: cancellation
       modification: modification
+      session-cancelled: session-cancelled
+      session-modified: session-modified
+      session-completed: session-completed
 
-# Eureka registration
+# Resilience4j configuration
+resilience4j:
+  retry:
+    instances:
+      email-service:
+        max-attempts: 3
+        wait-duration: 1s
+        exponential-backoff-multiplier: 2
+        retry-exceptions:
+          - java.lang.Exception
+  circuitbreaker:
+    instances:
+      email-service:
+        failure-rate-threshold: 50
+        minimum-number-of-calls: 5
+        sliding-window-size: 10
+        wait-duration-in-open-state: 30s
+        permitted-number-of-calls-in-half-open-state: 3
+        slow-call-rate-threshold: 80
+        slow-call-duration-threshold: 5s
+
+# Eureka registration - Utilise variable d'environnement
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://msdiscovery:8761/eureka/
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
+
+# Logging configuration
+logging:
+  level:
+    jroullet.msnotification: DEBUG
+    io.github.resilience4j: DEBUG
+    org.springframework.mail: DEBUG

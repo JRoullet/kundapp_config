@@ -5,8 +5,6 @@ server:
 spring:
   application:
     name: ms-notification
-  profiles:
-    active: mock  #mock profile for development
 
   data:
     mongodb:

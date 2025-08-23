@@ -5,7 +5,7 @@ spring:
   application:
     name: ms-course-mgmt
   datasource:
-    url: jdbc:mysql://mscoursemgmtdb:3306/coursemgmtdb?useUnicode=true&characterEncoding=utf8mb4&serverTimezone=UTC
+    url: jdbc:mysql://mscoursemgmtdb:3306/coursemgmtdb?useUnicode=true&characterEncoding=utf8mb4
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver

@@ -17,17 +17,17 @@ spring:
 #    url: jdbc:mysql://msidentitydb:3306/identitydb
 #    username: root
 #    password: root
-  jpa:
-    hibernate:
-      ddl-auto: validate
-    #    Allows tables creation
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
-        format_sql: true
-  sql:
-    init:
-      mode: never
+#  jpa:
+#    hibernate:
+#      ddl-auto: validate
+#    #    Allows tables creation
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL8Dialect
+#        format_sql: true
+#  sql:
+#    init:
+#      mode: never
 eureka:
   client:
     register-with-eureka: true

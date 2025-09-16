@@ -8,7 +8,7 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@msnotificationmongodb:27017/${MONGODB_DATABASE}?authSource=admin
+      uri: mongodb://${MONGODB_APP_USER}:${MONGODB_APP_PASSWORD}@msnotificationmongodb:27017/${MONGODB_DATABASE}?authSource=admin
 
   # Basic SMTP config (unused in mock mode)
   mail:

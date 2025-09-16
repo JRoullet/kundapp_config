@@ -13,10 +13,10 @@ spring:
       encoding: UTF-8
   application:
     name: ms-webapp
-  datasource:
-    url: jdbc:mysql://msidentitydb:3306/identitydb
-    username: root
-    password: root
+#  datasource:
+#    url: jdbc:mysql://msidentitydb:3306/identitydb
+#    username: root
+#    password: root
   jpa:
     hibernate:
       ddl-auto: validate

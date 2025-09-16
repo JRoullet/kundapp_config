@@ -6,8 +6,8 @@ spring:
     name: ms-course-mgmt
   datasource:
     url: jdbc:mysql://mscoursemgmtdb:3306/coursemgmtdb?useUnicode=true&characterEncoding=utf8mb4
-    username: root
-    password: root
+    username: ${MYSQL_COURSE_DB_USERNAME}
+    password: ${MYSQL_COURSE_DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
